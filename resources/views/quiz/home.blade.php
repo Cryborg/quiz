@@ -42,32 +42,47 @@
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
-            <!-- Thèmes disponibles -->
+            <!-- Aperçu du Quiz -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6">
                 <h2 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-                    <i class="fas fa-tags mr-2 text-blue-600 dark:text-blue-400"></i>Thèmes Disponibles
+                    <i class="fas fa-chart-bar mr-2 text-blue-600 dark:text-blue-400"></i>Aperçu du Quiz
                 </h2>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">{{ $totalQuestions }}</div>
+                        <div class="text-sm text-blue-800 dark:text-blue-300">Questions</div>
+                    </div>
+                    <div class="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600 dark:text-green-400">{{ $themes->count() }}</div>
+                        <div class="text-sm text-green-800 dark:text-green-300">Thèmes</div>
+                    </div>
+                </div>
+                
                 @if($themes->count() > 0)
-                    <div class="space-y-3">
-                        @foreach($themes as $theme)
-                            <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
-                                <div>
-                                    <h3 class="font-semibold text-gray-800 dark:text-gray-100">{{ $theme->name }}</h3>
-                                    <p class="text-sm text-gray-600 dark:text-gray-300">{{ $theme->description }}</p>
-                                </div>
-                                <div class="text-right">
-                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-sm font-medium">
-                                        {{ $theme->questions_count }} questions
-                                    </span>
-                                </div>
+                    <div class="space-y-2">
+                        <h3 class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Thèmes populaires :</h3>
+                        @foreach($themes->take(3) as $theme)
+                            <div class="flex items-center justify-between py-2 px-3 bg-gray-50 dark:bg-gray-700 rounded">
+                                <span class="text-sm font-medium text-gray-800 dark:text-gray-100">{{ $theme->name }}</span>
+                                <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full">
+                                    {{ $theme->questions_count }} questions
+                                </span>
                             </div>
                         @endforeach
+                        @if($themes->count() > 3)
+                            <div class="text-center pt-2">
+                                <span class="text-xs text-gray-500 dark:text-gray-400">
+                                    et {{ $themes->count() - 3 }} autres thèmes...
+                                </span>
+                            </div>
+                        @endif
                     </div>
                 @else
-                    <div class="text-center py-8">
-                        <i class="fas fa-exclamation-circle text-4xl text-gray-400 dark:text-gray-500 mb-4"></i>
-                        <p class="text-gray-600 dark:text-gray-300">Aucun thème disponible</p>
-                        <a href="/admin" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium mt-2 inline-block">
+                    <div class="text-center py-4">
+                        <i class="fas fa-exclamation-circle text-3xl text-gray-400 dark:text-gray-500 mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Aucun thème disponible</p>
+                        <a href="/admin" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium mt-2 inline-block text-sm">
                             Créer des thèmes dans l'administration
                         </a>
                     </div>

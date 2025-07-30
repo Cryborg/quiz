@@ -76,10 +76,7 @@
 
                 <!-- Réponses à cocher -->
                 <div id="answers-container" class="hidden">
-                    <div class="max-w-3xl mx-auto mb-4">
-                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-100 mb-3 text-center">
-                            <i class="fas fa-list mr-2"></i>Réponses à cocher (ordre alphabétique)
-                        </h3>
+                    <div class="max-w-3xl xl:max-w-lg mx-auto mb-4">
                         <div class="space-y-1 sm:space-y-1.5" id="answers-grid">
                             <!-- Les réponses seront ajoutées ici par JavaScript -->
                         </div>

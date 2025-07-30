@@ -462,7 +462,7 @@ class CompleteQuizDataSeeder extends Seeder
                     ['answer' => 'Transformers', 'points' => 1],
                     ['answer' => 'Voltron', 'points' => 2],
                     ['answer' => 'Robotech', 'points' => 2],
-                    ['answer' => 'Albator', 'points' => 3],
+                    ['answer' => 'Astro le petit robot', 'points' => 1],
                     ['answer' => 'Mazinger Z', 'points' => 3],
                     ['answer' => 'Gundam', 'points' => 4],
                     ['answer' => 'Macross', 'points' => 4],

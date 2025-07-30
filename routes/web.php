@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $themes = Theme::where('is_active', true)->withCount('questions')->get();
     $recentSessions = GameSession::with('players')->latest()->take(5)->get();
+    $totalQuestions = \App\Models\Question::where('is_active', true)->count();
     
-    return view('quiz.home', compact('themes', 'recentSessions'));
+    return view('quiz.home', compact('themes', 'recentSessions', 'totalQuestions'));
 })->name('home');
 
 // Routes de jeu

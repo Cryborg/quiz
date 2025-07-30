@@ -16,6 +16,8 @@ class ReturnToGame extends Page
     
     protected static ?int $navigationSort = 1;
     
+    protected static ?string $navigationGroup = 'Navigation';
+    
     public function mount(): void
     {
         // Redirection immédiate vers le jeu

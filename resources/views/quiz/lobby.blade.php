@@ -58,22 +58,6 @@
                     @endforeach
                 </div>
 
-                <!-- Statistiques rapides -->
-                <div class="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-                    <h3 class="font-semibold text-indigo-800 dark:text-indigo-300 mb-2">
-                        <i class="fas fa-chart-bar mr-2"></i>Aperçu du Quiz
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">{{ count($session->selected_themes) }}</div>
-                            <div class="text-gray-600 dark:text-gray-300">Thèmes</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{{ $session->themes->sum('questions_count') }}</div>
-                            <div class="text-gray-600 dark:text-gray-300">Questions</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
