@@ -37,9 +37,4 @@ class GameSession extends Model
         return collect();
     }
 
-    // Accessor pour récupérer les thèmes complets
-    public function getThemesAttribute()
-    {
-        return $this->getSelectedThemes();
-    }
 }

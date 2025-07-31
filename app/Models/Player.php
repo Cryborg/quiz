@@ -18,9 +18,6 @@ class Player extends Model
         'answered_questions' => 'array',
     ];
 
-    protected $attributes = [
-        'answered_questions' => '[]',
-    ];
 
     public function gameSession(): BelongsTo
     {
